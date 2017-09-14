@@ -7,7 +7,7 @@ var assert = require('assert');
 var logger = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
-var port = process.env.PORT || 8080;
+var port = 3000;//process.env.PORT || 8080;
 var mongoUri = process.env.MONGOLAB_URI ||
         process.env.MONGOHQ_URL ||
         'mongodb://localhost/video';
@@ -91,7 +91,7 @@ MongoClient.connect(mongoUri, function(err, db) {
 
 
     app.listen(port, function() {
-        console.log('Server listening on port 3000');
+        console.log('Server listening on port ' + port.toString());
     });
 
 });
