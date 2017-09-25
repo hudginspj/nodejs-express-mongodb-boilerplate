@@ -35,23 +35,23 @@ MongoClient.connect(mongoUri, function(err, db) {
     console.log('Successfully connected to mondodb');
 
     app.get('/', function(req, res) {
-        db.collection('movies').find({}).toArray(function(err, docs) {
-            res.render('index', {'movies': docs} );
+        db.collection('patients').find({}).toArray(function(err, docs) {
+            res.render('index', {'patients': docs} );
         });
     });
 
     app.post('/', function(req, res) {
-        var title = req.body.movieTitle;
-        var year = req.body.movieYear;
-        var imdb = req.body.movieIMDB;
+        var firstName = req.body.firstName;
+        var lastName = req.body.lastName;
+        //var imdb = req.body.movieIMDB;
 
-        db.collection('movies').insertOne({
-                                            title: title,
-                                            year: year,
-                                            imdb: imdb
+        db.collection('patients').insertOne({
+                                            firstName: firstName,
+                                            lastName: lastName//,
+                                            //imdb: imdb
                                         }, function(err, doc) {
                                             assert.equal(null, err);
-                                            res.render('newmovie', {movie: req.body});
+                                            res.render('newpatient', {patient: req.body});
                                         }
         );
 
