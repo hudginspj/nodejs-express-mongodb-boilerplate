@@ -11,54 +11,91 @@
         <div class="container">
 
             <br />
-            <H1>Patients</H1>
-            <table class="table table-striped">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                </tr>
-                {% for patient in patients %}
-                <tr>
-                    <td>{{patient.firstName}}</td>
-                    <td>{{patient.lastName}}</td>
-                </tr>
-                {% endfor %}
-            </table>
-
-            <hr>
-
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                <li><a data-toggle="tab" href="#test">Test</a></li>
-            </ul>
 
 
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
+            <div class="col-md-10">
+                <div class="tab-content">
+                    <div id="form1" class="tab-pane fade in active">
 
 
-                    <h1>Enter details below to add a patient</h1>
-                    <form action="/" method="POST" role='form'>
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
-                        </div>
+                        <h1>Enter details below to add a patient</h1>
+                        <form action="/" method="POST" role='form'>
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last name</label>
+                                <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
+                            </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
 
 
+                    </div>
+
+
+                    <div id="form2" class="tab-pane fade">
+                        <H1>Patients</H1>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                            </tr>
+                            {% for patient in patients %}
+                            <tr>
+                                <td>{{patient.firstName}}</td>
+                                <td>{{patient.lastName}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div id="form3" class="tab-pane fade">
+                        <h3>Form 3</h3>
+                        <p>Just some text.</p>
+                    </div>
+                    <div id="form4" class="tab-pane fade">
+                        <h3>Form 4</h3>
+                        <p>Just some text.</p>
+                    </div>
+                    <div id="form5" class="tab-pane fade">
+                        <h3>Form 5</h3>
+                        <p>Just some text.</p>
+                    </div>
+                    <div id="form6" class="tab-pane fade">
+                        <h3>Form 6</h3>
+                        <p>Just some text.</p>
+                    </div>
+                    <div id="form7" class="tab-pane fade">
+                        <h3>Form 7</h3>
+                        <p>Just some text.</p>
+                    </div>
+                    <div id="form8" class="tab-pane fade">
+                        <h3>Form 8</h3>
+                        <p>Just some text.</p>
+                    </div>
+                    <div id="form9" class="tab-pane fade">
+                        <h3>Form 9</h3>
+                        <p>Just some text.</p>
+                    </div>
                 </div>
+            </div>
 
+            <br>
 
-                <div id="test" class="tab-pane fade">
-                    <h3>Test</h3>
-                    <p>Just some text.</p>
-                </div>
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a data-toggle="tab" href="#form1">Form 1</a></li>
+                    <li><a data-toggle="tab" href="#form2">Form 2</a></li>
+                    <li><a data-toggle="tab" href="#form3">Form 3</a></li>
+                    <li><a data-toggle="tab" href="#form4">Form 4</a></li>
+                    <li><a data-toggle="tab" href="#form5">Form 5</a></li>
+                    <li><a data-toggle="tab" href="#form6">Form 6</a></li>
+                    <li><a data-toggle="tab" href="#form7">Form 7</a></li>
+                    <li><a data-toggle="tab" href="#form8">Form 8</a></li>
+                    <li><a data-toggle="tab" href="#form9">Form 9</a></li>
+                </ul>
             </div>
 
 
