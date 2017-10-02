@@ -29,8 +29,16 @@
                                 <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                            <body onload="fillDropdown()">
+
+                            <div id = "selectDiseaseform">
+                                <select name ="dis" id = "selectDropdown" class="form-control">  </select> <br>
+                            </div>
+                            <br>
+                            <button  type="button" onclick = "addDisease()" class="btn btn-primary" id="btn-addDisease"> Select more diseases</button>
+                            <br><br>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
 
 
                     </div>
@@ -102,4 +110,86 @@
         </div>
 
     </body>
+
+
+
+    <script type="text/javascript">
+        var diseaseList = [{"d1":"Adenomas, multiple colorectal"},{"d1":"Alzheimer disease, susceptibility to"},{"d1":"Amyotrophic lateral sclerosis, susceptibility to"},{"d1":"Asthma"},{"d1":"Becker muscular dystrophy"},{"d1":"Bladder cancer"},{"d1":"Breast cancer"},{"d1":"Cancer"},{"d1":"Cardiomyopathy, dilated"},{"d1":"Cardiovascular"},{"d1":"Cervical cancer, somatic"},{"d1":"Colorectal cancer"},{"d1":"Dermatitis, atopic"},{"d1":"Duchenne muscular dystrophy"},{"d1":"Esophageal cancer"}];
+        var counterID = 1;
+
+        function fillDropdown()
+        {
+            var selectDisease = document.getElementById("selectDropdown");
+            var option = document.createElement("option");
+            option.textContent = "Select Disease";
+            option.value = "Select Disease";
+            selectDisease.appendChild(option);
+
+            for(var i = 0; i<diseaseList.length; i++)
+            {
+                var disName = diseaseList[i].d1;
+                var option = document.createElement("option");
+                option.textContent = disName;
+                option.value = disName;
+                selectDisease.appendChild(option);
+            }
+        }
+
+        function addDisease()
+        {
+            if(counterID < 5)
+            {
+                var lineBreak = document.createElement("br");
+                var addDisease = document.createElement("select");
+                var classAttr = document.createAttribute("class");
+                var nameAttr = document.createAttribute("name");
+
+                classAttr.value = "form-control";
+                nameAttr.value = "dis" + counterID;
+
+                addDisease.setAttributeNode(classAttr);
+                addDisease.setAttributeNode(nameAttr)
+                addDisease.id = "selectDropdown" + counterID;
+                addDisease.textContent = "Select Disease";
+                document.getElementById("selectDiseaseform").appendChild(addDisease);
+                document.getElementById("selectDiseaseform").appendChild(lineBreak);
+                counterID +=1;
+
+                var selectDisease = document.getElementById(addDisease.id);
+                var option = document.createElement("option");
+                option.textContent = "Select Disease";
+                option.value = "Select Disease";
+                selectDisease.appendChild(option);
+
+                for(var i = 0; i<diseaseList.length; i++)
+                {
+                    var disName = diseaseList[i].d1;
+                    var option = document.createElement("option");
+                    option.textContent = disName;
+                    option.value = disName;
+                    selectDisease.appendChild(option);
+                }
+            }
+            else
+            {
+                var para = $("<input>", {id:"para", class: "alert alert-danger", value:"Cannot exceed 5 diseases"});
+                $("#selectDiseaseform").append(para);
+                $("#btn-addDisease").attr("disabled","disabled");
+
+            }
+        }
+
+        function isEmpty(str)
+
+
+        { return (!str || 0 === str.length); }
+
+        function isBlank(str)
+        { return (!str || /^\s*$/.test(str)); }
+
+    </script>
+
+
+
+
 </html>
